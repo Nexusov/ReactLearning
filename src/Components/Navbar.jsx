@@ -17,6 +17,7 @@ export default function Navbar() {
 			</div>
 			<div>
 				<a>Settings</a>
+				<a>Settings 2 </a>
 			</div>
 		</nav>
 	);

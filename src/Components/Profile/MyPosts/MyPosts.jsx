@@ -11,8 +11,8 @@ export default function MyPosts() {
 				<button>Add post</button>
 			</div>
 			<div className={s.posts}>
-				<Post message='Hello World!'/>
-				<Post message='My first post'/>
+				<Post message='Hello World!' likesCount='0'/>
+				<Post message='My first post' likesCount='23'/>
 			</div>
 		</div>
 	);

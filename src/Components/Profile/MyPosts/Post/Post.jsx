@@ -7,7 +7,7 @@ export default function Post(props) {
 			<img src="https://pbs.twimg.com/profile_images/435523312404267008/OdfbG_oN_400x400.jpeg" />
 			{props.message}
 			<div>
-				<span>Like</span>
+				<span>Like: </span> {props.likesCount}
 			</div>
 		</div>
 	);

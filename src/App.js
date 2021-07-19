@@ -3,15 +3,35 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
 import Profile from './Components/Profile/Profile';
+import Dialogs from './Components/Dialogs/Dialogs';
+import Music from './Components/Music/Music';
+import Settings from './Components/Settings/Settings';
+import News from './Components/News/News';
+import {BrowserRouter, BrowserRouter as Router, Route} from 'react-router-dom';
+
 
 function App() {
 	return (
+		<BrowserRouter>
 		<div className="app-wrapper">
 			<Header />
-			<Navbar />
-			<Profile />
+			<Navbar />		
+			<div className="app-wrapper-content">
+				<Route path='/Dialogs' component={Dialogs}/>
+				<Route path='/Profile' component={Profile}/>
+				<Route path='/News' component={News}/>
+				<Route path='/Music' component={Music}/>
+				<Route path='/Settings' component={Settings}/>
+			</div>
 		</div>
+		</BrowserRouter>
 	);
 }
 
 export default App;
+
+
+/* роуты:
+1) import {BrowserRouter as Router, Route} from 'react-router-dom';
+2) всё заключаем в тег Router или BrowserRouter
+3) отдельные пути через Route <Route path="/dialogs" component={Dialoges} /> */

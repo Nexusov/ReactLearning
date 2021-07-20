@@ -34,4 +34,5 @@ export default App;
 /* роуты:
 1) import {BrowserRouter as Router, Route} from 'react-router-dom';
 2) всё заключаем в тег Router или BrowserRouter
-3) отдельные пути через Route <Route path="/dialogs" component={Dialoges} /> */
+3) отдельные пути через Route <Route path="/dialogs" component={Dialoges} /> 
+4) <Route exact path='/Dialogs' component={Dialogs}/> выведет только диалоги и все. Exact ищет точное совпадение url*/

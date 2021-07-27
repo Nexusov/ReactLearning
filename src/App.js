@@ -7,30 +7,37 @@ import Dialogs from './Components/Dialogs/Dialogs';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
 import News from './Components/News/News';
-import {BrowserRouter, BrowserRouter as Router, Route} from 'react-router-dom';
-
+import {
+	BrowserRouter,
+	BrowserRouter as Router,
+	Route,
+} from 'react-router-dom';
 
 function App(props) {
-
-	return ( 
+	return (
 		<BrowserRouter>
-		<div className="app-wrapper">
-			<Header />
-			<Navbar />		
-			<div className="app-wrapper-content">
-				<Route path='/Dialogs' render = { () => <Dialogs messages = {props.messages}  dialogs = {props.dialogs} /> }/>
-				<Route path='/Profile' render = { () => <Profile posts = {props.posts} /> }/>
-				<Route path='/News' render = { () => <News /> }/>
-				<Route path='/Music' render = { () => <Music /> }/>
-				<Route path='/Settings' render = { () => <Settings /> }/>
+			<div className="app-wrapper">
+				<Header />
+				<Navbar />
+				<div className="app-wrapper-content">
+					<Route
+						path="/Dialogs"
+						render = { () =>  
+							<Dialogs state = {props.state.dialogsPage} /> } />
+					<Route
+						path="/Profile"
+						render = { () => 
+							<Profile state = {props.state.profilePage} /> } />
+					<Route path="/News" render={() => <News />} />
+					<Route path="/Music" render={() => <Music />} />
+					<Route path="/Settings" render={() => <Settings />} />
+				</div>
 			</div>
-		</div>
 		</BrowserRouter>
 	);
 }
 
 export default App;
-
 
 /* роуты:
 1) import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -38,7 +45,8 @@ export default App;
 3) отдельные пути через Route <Route path="/dialogs" component={Dialoges} /> 
 4) <Route exact path='/Dialogs' component={Dialogs}/> выведет только диалоги и все. Exact ищет точное совпадение url*/
 
-{/* раньше было вот так:
+{
+	/* раньше было вот так:
 <Route path='/Dialogs' component={Dialogs}/>
 <Route path='/Profile' component={Profile}/>
 <Route path='/News' component={News}/>
@@ -47,4 +55,5 @@ export default App;
 
 а еще можно просто обернуть компоненту в Rout: <Route path='/'> <Componet /> </Route>
 
-*/}
+*/
+}

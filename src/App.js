@@ -10,18 +10,19 @@ import News from './Components/News/News';
 import {BrowserRouter, BrowserRouter as Router, Route} from 'react-router-dom';
 
 
-function App() {
-	return (
+function App(props) {
+
+	return ( 
 		<BrowserRouter>
 		<div className="app-wrapper">
 			<Header />
 			<Navbar />		
 			<div className="app-wrapper-content">
-				<Route path='/Dialogs' component={Dialogs}/>
-				<Route path='/Profile' component={Profile}/>
-				<Route path='/News' component={News}/>
-				<Route path='/Music' component={Music}/>
-				<Route path='/Settings' component={Settings}/>
+				<Route path='/Dialogs' render = { () => <Dialogs messages = {props.messages}  dialogs = {props.dialogs} /> }/>
+				<Route path='/Profile' render = { () => <Profile posts = {props.posts} /> }/>
+				<Route path='/News' render = { () => <News /> }/>
+				<Route path='/Music' render = { () => <Music /> }/>
+				<Route path='/Settings' render = { () => <Settings /> }/>
 			</div>
 		</div>
 		</BrowserRouter>
@@ -36,3 +37,14 @@ export default App;
 2) всё заключаем в тег Router или BrowserRouter
 3) отдельные пути через Route <Route path="/dialogs" component={Dialoges} /> 
 4) <Route exact path='/Dialogs' component={Dialogs}/> выведет только диалоги и все. Exact ищет точное совпадение url*/
+
+{/* раньше было вот так:
+<Route path='/Dialogs' component={Dialogs}/>
+<Route path='/Profile' component={Profile}/>
+<Route path='/News' component={News}/>
+<Route path='/Music' component={Music}/>
+<Route path='/Settings' component={Settings}/> 
+
+а еще можно просто обернуть компоненту в Rout: <Route path='/'> <Componet /> </Route>
+
+*/}

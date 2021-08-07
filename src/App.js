@@ -44,7 +44,7 @@ export default App;
 3) отдельные пути через Route <Route path="/dialogs" component={Dialoges} /> 
 4) <Route exact path='/Dialogs' component={Dialogs}/> выведет только диалоги и все. Exact ищет точное совпадение url*/
 
-{
+
 	/* раньше было вот так:
 <Route path='/Dialogs' component={Dialogs}/>
 <Route path='/Profile' component={Profile}/>
@@ -55,4 +55,4 @@ export default App;
 а еще можно просто обернуть компоненту в Rout: <Route path='/'> <Componet /> </Route>
 
 */
-}
+

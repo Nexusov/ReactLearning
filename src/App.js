@@ -20,7 +20,7 @@ function App(props) {
 					<Route
 						path="/Dialogs"
 						render = { () =>  
-							<Dialogs state = {props.state.dialogsPage} /> } />
+							<Dialogs store = {props.store} /> } />
 					<Route
 						path="/Profile"
 						render = { () => 

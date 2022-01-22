@@ -1,4 +1,3 @@
-/* eslint-disable default-case */
 const ADD_POST = 'ADD_POST'
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT'
 

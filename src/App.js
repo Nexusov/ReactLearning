@@ -19,11 +19,11 @@ function App(props) {
 					<Route
 						path="/Dialogs"
 						render = { () =>  
-							<DialogsContainer store = {props.store} /> } />
+							<DialogsContainer  /> } />
 					<Route
 						path="/Profile"
 						render = { () => 
-							<Profile store = {props.store} /> } />
+							<Profile  /> } />
 					<Route path="/News" render={() => <News />} />
 					<Route path="/Music" render={() => <Music />} />
 					<Route path="/Settings" render={() => <Settings />} />

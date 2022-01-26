@@ -6,8 +6,9 @@ import Profile from './Components/Profile/Profile';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
 import News from './Components/News/News';
-import { BrowserRouter, BrowserRouter as Router, Route,} from 'react-router-dom';
+import { BrowserRouter, Route,} from 'react-router-dom';
 import DialogsContainer from './Components/Dialogs/DialogsContainter';
+import UsersContainer from './Components/Users/UsersContainer';
 
 function App(props) {
 	return (
@@ -16,14 +17,9 @@ function App(props) {
 				<Header />
 				<Navbar />
 				<div className="app-wrapper-content">
-					<Route
-						path="/Dialogs"
-						render = { () =>  
-							<DialogsContainer  /> } />
-					<Route
-						path="/Profile"
-						render = { () => 
-							<Profile  /> } />
+					<Route path="/Dialogs" render={() => <DialogsContainer />} />
+					<Route path="/Profile" render={() => <Profile />} />
+					<Route path="/Users" render={() => <UsersContainer />} />
 					<Route path="/News" render={() => <News />} />
 					<Route path="/Music" render={() => <Music />} />
 					<Route path="/Settings" render={() => <Settings />} />

@@ -27,9 +27,9 @@ class Users extends React.Component {
         for (let i = 1; i <= pagesCount; i++) {
             pages.push(i)
         }
-
+    
         return <div>
-            <div>
+            <div className = {styles.pagesList}>
                 {pages.map( p => {
                     return <span className = {this.props.currentPage === p && styles.selectedPage} 
                         onClick = { () => { this.onPageChanged(p) } }> {p} </span>

@@ -3,12 +3,14 @@ const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
+const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState = {
         users: [ ],
 		pageSize: 50,
 		totalUsersCount: 0,
 		currentPage: 1,
+		isFetching: true,
         newPostText: 'Write a new post here'
 }
 
@@ -48,6 +50,10 @@ const usersReducer = (state = initialState, action) => {
 			return { ...state, totalUsersCount: action.count };
 		}
 
+		case TOGGLE_IS_FETCHING: {
+			return { ...state, isFetching: action.isFetching };
+		}
+
 		default:
 			return state;
 	}
@@ -56,7 +62,7 @@ const usersReducer = (state = initialState, action) => {
 
 export const followActionCreator = (userId) => {
 	return {
-		type: FOLLOW, userId
+		type: FOLLOW, userId  /* userId: userId  - еще один вид записи*/
 	}
 }
 
@@ -81,6 +87,12 @@ export const setCurrentPageActionCreator = (currentPage) => {
 export const setUsersTotalCountActionCreator = (totalUsersCount) => {
 	return {
 		type: SET_TOTAL_USERS_COUNT, count: totalUsersCount
+	}
+}
+
+export const toggleIsFetchingActionCreator = (isFetching) => {
+	return {
+		type: TOGGLE_IS_FETCHING, isFetching
 	}
 }
 

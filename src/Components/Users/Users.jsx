@@ -1,42 +1,27 @@
-import * as axios from 'axios';
-import React from 'react';
+import React from 'react'
 import styles from './Users.module.css';
 import userPhoto from '../../Assets/images/user.jpg'
 
-class Users extends React.Component {
+// Users - презентационная (чистая) компонента
+let Users = (props) => {
 
-    componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then((response) => {
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
-        });
+    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize) // Math.ceil - округляет значение в большую сторону
+
+    let pages = []
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i)
     }
 
-    onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-            .then((response) => {this.props.setUsers(response.data.items);
-        });
-    }
-
-    render() {
-        let pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize) // Math.ceil - округляет значение в большую сторону
-
-        let pages = []
-        for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i)
-        }
-    
-        return <div>
+    return <div> 
             <div className = {styles.pagesList}>
                 {pages.map( p => {
-                    return <span className = {this.props.currentPage === p && styles.selectedPage} 
-                        onClick = { () => { this.onPageChanged(p) } }> {p} </span>
+                    return <span className = { props.currentPage === p && styles.selectedPage } 
+                        onClick = { () => { props.onPageChanged(p) } }> {p} </span>
                 })}
             </div>
+
             {
-                this.props.users.map( u => <div key = {u.id}>
+                props.users.map( u => <div key = {u.id}>
                     <span>
                         <div>
                             <img src = {u.photos.large != null ? u.photos.large : userPhoto} alt = '' className = {styles.usersPhoto} />
@@ -44,8 +29,8 @@ class Users extends React.Component {
                         <div>
                             {
                                 u.followed 
-                                    ? <button onClick = { () => { this.props.unfollow(u.id) } } >Unfollow</button> 
-                                    : <button onClick = { () => { this.props.follow(u.id) } } >Follow</button>
+                                    ? <button onClick = { () => { props.unfollow(u.id) } } >Unfollow</button> 
+                                    : <button onClick = { () => { props.follow(u.id) } } >Follow</button>
                             }
                         </div>
                     </span>
@@ -62,7 +47,6 @@ class Users extends React.Component {
                 </div>)
             }
         </div>
-    }
 }
 
-export default Users;
+export default Users 

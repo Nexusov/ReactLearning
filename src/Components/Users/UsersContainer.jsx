@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import {
-    followActionCreator,
-    unfollowActionCreator,
-    setUsersActionCreator,
-    setCurrentPageActionCreator,
-    setUsersTotalCountActionCreator,
-    toggleIsFetchingActionCreator
+    follow,
+    unfollow,
+    setUsers,
+    setCurrentPage,
+    setTotalUsersCount,
+    toggleIsFetching
 } from '../../Redux/users-reducer';
 import * as axios from 'axios';
 import React from 'react';
@@ -64,6 +64,44 @@ let mapStateToProps = (state) => {
     }
 }
 
+/* let mapDispatchToProps = (dispatch) => {
+    return {
+        follow: (userId) => {
+            dispatch(followActionCreator(userId))
+        },
+        unfollow: (userId) => {
+            dispatch(unfollowActionCreator(userId))
+        },
+        setUsers: (users) => {
+            dispatch(setUsersActionCreator(users))
+        },
+        setCurrentPage: (pageNumber) => {
+            dispatch (setCurrentPageActionCreator(pageNumber))
+        },
+        setTotalUsersCount: (totalCount) => {
+            dispatch (setUsersTotalCountActionCreator(totalCount))
+        },
+        toggleIsFetching: (isFetching) => {
+            dispatch (toggleIsFetchingActionCreator(isFetching))
+        },
+    }
+} */
+
+export default connect(mapStateToProps, {
+	follow,
+	unfollow,
+	setUsers,
+	setCurrentPage,
+	setTotalUsersCount,
+	toggleIsFetching,
+})(UsersContainer);
+
+
+/* ...если вы передаете в connect вторым аргументом не mapDispatchToProps, а объект с AC, то 
+connect оборачивает ваши AC в функцию-обертку () => store.dispatch(AC) и передаёт в props компонента */
+
+/* Раньше было так:
+
 let mapDispatchToProps = (dispatch) => {
     return {
         follow: (userId) => {
@@ -87,4 +125,4 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer) ;
+export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer) ; */

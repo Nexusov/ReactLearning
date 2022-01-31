@@ -6,12 +6,12 @@ const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 
 let initialState = {
-        users: [ ],
-		pageSize: 50,
-		totalUsersCount: 0,
-		currentPage: 1,
-		isFetching: true,
-        newPostText: 'Write a new post here'
+    users: [ ],
+	pageSize: 50,
+	totalUsersCount: 0,
+	currentPage: 1,
+	isFetching: true,
+    newPostText: 'Write a new post here'
 }
 
 const usersReducer = (state = initialState, action) => {

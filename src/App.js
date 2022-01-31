@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
+import HeaderContainer from './Components/Header/HeaderContainer';
 import Navbar from './Components/Navbar/Navbar';
 import Music from './Components/Music/Music';
 import Settings from './Components/Settings/Settings';
@@ -14,7 +14,7 @@ function App(props) {
 	return (
 		<BrowserRouter>
 			<div className="app-wrapper">
-				<Header />
+				<HeaderContainer />
 				<Navbar />
 				<div className="app-wrapper-content">
 					<Route path="/Dialogs" render={() => <DialogsContainer />} />

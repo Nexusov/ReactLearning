@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './Users.module.css';
 import userPhoto from '../../Assets/images/user.jpg'
 import { NavLink } from 'react-router-dom';
+import * as axios from 'axios';
 
 // Users - презентационная (чистая) компонента
 let Users = (props) => {
@@ -32,8 +33,35 @@ let Users = (props) => {
                         <div>
                             {
                                 u.followed 
-                                    ? <button onClick = { () => { props.unfollow(u.id) } } >Unfollow</button> 
-                                    : <button onClick = { () => { props.follow(u.id) } } >Follow</button>
+                                    ? <button onClick = { () => { 
+                                        axios
+                                        .delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {
+                                            withCredentials: true,
+                                            headers: {
+                                                "API-KEY": "395cfa01-bf70-4e82-bad5-24895eba6c7f"
+                                            }
+                                        })
+                                        .then((response) => {
+                                            if (response.data.resultCode === 0) {
+                                                props.unfollow(u.id) 
+                                            }
+                                        });
+                                    } } >Unfollow</button> 
+                                    
+                                    : <button onClick = { () => { 
+                                        axios
+                                            .post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
+                                                withCredentials: true,
+                                                headers: {
+                                                    "API-KEY": "395cfa01-bf70-4e82-bad5-24895eba6c7f"
+                                                }
+                                            })
+                                            .then((response) => {
+                                                if (response.data.resultCode === 0) {
+                                                    props.follow(u.id) 
+                                                }
+                                            });
+                                    } } >Follow</button>
                             }
                         </div>
                     </span>

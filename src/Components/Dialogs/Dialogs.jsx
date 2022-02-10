@@ -2,7 +2,7 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 import s from './Dialogs.module.css';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../Redux/dialogs-reducer';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 export default function Dialogs(props) {
 
@@ -19,6 +19,10 @@ export default function Dialogs(props) {
 	let onNewMessageChange = (e) => {
 		let body = e.target.value
 		props.updateNewMessageBody(body)
+	}
+
+	if (!props.isAuth ) {
+		return <Redirect to = '/Login' /> //! в react-router-dom V6 нет Redirect, вместо него <Navigate to = '/Login'/> */
 	}
 
 	return (

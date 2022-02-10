@@ -9,6 +9,7 @@ import { BrowserRouter, Route,} from 'react-router-dom';
 import DialogsContainer from './Components/Dialogs/DialogsContainter';
 import UsersContainer from './Components/Users/UsersContainer';
 import ProfileContainer from './Components/Profile/ProfileContainer';
+import LoginPage  from './Components/Login/Login';
 
 function App(props) {
 	return (
@@ -17,6 +18,7 @@ function App(props) {
 				<HeaderContainer />
 				<Navbar />
 				<div className="app-wrapper-content">
+					<Route path="/Login" render={() => <LoginPage />} />
 					<Route path="/Dialogs" render={() => <DialogsContainer />} />
 					<Route path="/Profile/:userId?" render={() => <ProfileContainer />} />
 					<Route path="/Users" render={() => <UsersContainer />} />

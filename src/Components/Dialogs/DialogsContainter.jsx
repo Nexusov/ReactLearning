@@ -4,6 +4,7 @@ import { sendMessageCreator, updateNewMessageBodyCreator } from '../../Redux/dia
 import { connect } from 'react-redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import Dialogs from './Dialogs';
+import { compose } from 'redux';
 
 let mapStateToProps = (state) => {
 	return {
@@ -22,11 +23,11 @@ let mapDispatchToProps = (dispatch) => {
 	}
 }
 
-let AuthRedirectComponent = withAuthRedirect(Dialogs)
-
 /* connect возвращает нам новую контейнерную компоненту. 
 Отрисовывется Dialogs-компонента и в нее заходят данные из объектов, которые 
 возвращаются из mapStateToProps и mapDispatchToProps */
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedirectComponent)
 
-export default DialogsContainer
+export default compose(
+	connect(mapStateToProps, mapDispatchToProps),
+	withAuthRedirect
+)(Dialogs)

@@ -34,5 +34,4 @@ let mapStateToProps = (state) => (
 export default compose(
 	connect(mapStateToProps, {getUserProfile}),
 	withRouter, //! В react-router-dom v6 убрали withRouter, вместо него, можно использовать useMatch */
-	withAuthRedirect
 )(ProfileContainer)

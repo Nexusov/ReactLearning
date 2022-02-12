@@ -1,6 +1,7 @@
 import React from 'react';
 import Preloader from '../../Common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
+import ProfileStatus from './ProfileStatus';
 
 export default function ProfileInfo(props) {
 	if (!props.profile) {
@@ -9,11 +10,12 @@ export default function ProfileInfo(props) {
 
 	return (
 		<div>
-			<div>
+			{/* <div>
 				<img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" alt = ""></img>
-			</div>
+			</div> */}
 			<div className = {s.descriptionBlock}>
 				<img src = {props.profile.photos.large} alt = '' />
+				<ProfileStatus status = {'My status is here!'} />
 			</div>
 		</div>
 	);

@@ -15,7 +15,7 @@ let initialState = {
         ],
 
         profile: null,
-        status: "" ,
+        status: "",
         newPostText: 'Write a new post here'
 }
 

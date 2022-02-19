@@ -14,17 +14,17 @@ import LoginPage  from './Components/Login/Login';
 function App(props) {
 	return (
 		<BrowserRouter>
-			<div className="app-wrapper">
+			<div className = "app-wrapper">
 				<HeaderContainer />
 				<Navbar />
-				<div className="app-wrapper-content">
-					<Route path="/Login" render={() => <LoginPage />} />
-					<Route path="/Dialogs" render={() => <DialogsContainer />} />
-					<Route path="/Profile/:userId?" render={() => <ProfileContainer />} />
-					<Route path="/Users" render={() => <UsersContainer />} />
-					<Route path="/News" render={() => <News />} />
-					<Route path="/Music" render={() => <Music />} />
-					<Route path="/Settings" render={() => <Settings />} />
+				<div className = "app-wrapper-content">
+					<Route path = "/Login" render = {() => <LoginPage />} />
+					<Route path = "/Dialogs" render = {() => <DialogsContainer />} />
+					<Route path = "/Profile/:userId?" render = {() => <ProfileContainer />} />
+					<Route path = "/Users" render = {() => <UsersContainer />} />
+					<Route path = "/News" render = {() => <News />} />
+					<Route path = "/Music" render = {() => <Music />} />
+					<Route path = "/Settings" render = {() => <Settings />} />
 				</div>
 			</div>
 		</BrowserRouter>

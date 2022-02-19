@@ -28,7 +28,13 @@
     "extends": [
       "react-app",
       "react-app/jest"
-    ]
+    ],
+  "plugins": [
+      "react"
+    ],
+  "rules": {
+      "react/jsx-equals-spacing": [2, "always"]
+    }
   },
   "browserslist": {
     "production": [
@@ -41,5 +47,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.28.0"
   }
 }

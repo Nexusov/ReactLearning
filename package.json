@@ -15,7 +15,8 @@
     "react-scripts": "^4.0.3",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.11"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,11 +30,14 @@
       "react-app",
       "react-app/jest"
     ],
-  "plugins": [
+    "plugins": [
       "react"
     ],
-  "rules": {
-      "react/jsx-equals-spacing": [2, "always"]
+    "rules": {
+      "react/jsx-equals-spacing": [
+        1,
+        "always"
+      ]
     }
   },
   "browserslist": {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useFormik } from 'formik'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
 import s from "./Login.module.css";
 import * as Yup from 'yup'
 
@@ -19,35 +19,31 @@ const validationSchema = Yup.object({
 })
 
 const LoginForm = () => {
-    const formik = useFormik({
-        initialValues,
-        onSubmit,
-        validationSchema
-        /* validate */
-    })
 
     return (
-		<>
-			<h1>Login Page</h1>
-			<form onSubmit = {formik.handleSubmit}>
+        <>
+        <h1>Login Page</h1>
+		<Formik initialValues = {initialValues} validationSchema = {validationSchema} onSubmit = {onSubmit} >
+			<Form>
 				<div className = {s.formControl}>
                     <label htmlFor = "login">Login</label>
-					<input placeholder = {'Login'} type = 'text' id = 'login' name = {'login'} {...formik.getFieldProps('login')} />
-                    {formik.touched.login &&  formik.errors.login ? <div className = {s.error}>{formik.errors.login}</div> : null}
+					<Field placeholder = {'Login'} type = 'text' id = 'login' name = {'login'} />
+                    <div className = {s.error}><ErrorMessage name = 'login'/></div>
 				</div>
 				<div className = {s.formControl}>
                 <label htmlFor = "password">Password</label>
-                    <input placeholder = {'Password'} type = 'password' id = 'password' name = {'password'} {...formik.getFieldProps('password')} />
-					{formik.touched.password && formik.errors.password ? <div className = {s.error}>{formik.errors.password}</div> : null}
-				</div>
+                    <Field placeholder = {'Password'} type = 'password' id = 'password' name = {'password'} />
+                    <div className = {s.error}><ErrorMessage name = 'password'/></div>
+                </div>
 				<div>
-					<input type = {'checkbox'} id = 'rememberMe' name = {'rememberMe'} {...formik.getFieldProps('rememberMe')} /> Remember me
+					<Field type = {'checkbox'} id = 'rememberMe' name = {'rememberMe'} /> Remember me
 				</div>
                 <div>
                     <button type = 'submit'>Login</button>
                 </div>
-			</form>
-		</>
+			</Form>
+		</Formik>
+        </>
 	);
 }
 

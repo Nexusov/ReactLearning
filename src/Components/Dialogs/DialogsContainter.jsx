@@ -1,6 +1,5 @@
 import React from 'react';
-import s from './Dialogs.module.css';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../Redux/dialogs-reducer';
+import { sendMessageCreator } from '../../Redux/dialogs-reducer';
 import { connect } from 'react-redux';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import Dialogs from './Dialogs';
